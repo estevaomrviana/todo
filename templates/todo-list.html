@@ -5,7 +5,7 @@
         <div class="card-body">
             <div class="d-flex">
                 <div class="p-2 flex-grow-1">
-                    <h5 class="card-title {% if todo.completed %} text-decoration-line-through{% endif %}">
+                    <h5 class="card-title {% if todo.completed %} text-decoration-line-through text-success{% endif %}">
                         {{ todo.title }}
                     </h5>
                 </div>
@@ -17,14 +17,14 @@
                         <i class="bi bi-check-lg"></i>
                     </button>
                 </div>
-                <!-- <div class="p-2">
+                <div class="p-2">
                     <button 
                         class="btn btn-outline-danger"
                         hx-delete="{% url 'delete_todo' todo.pk %}"
                         hx-target="#todoList" hx-confirm="Tem certeza de que deseja excluir?">
                         <i class="bi bi-x-lg"></i>
                     </button>
-                </div> -->
+                </div>
             </div>
             
         </div>
@@ -34,6 +34,6 @@
     
 {% else %}
 
-<h5>Atualmente, você não tem uma tarefa.</h5>
+<h5>Atualmente, você não tem uma tarefa neste projeto.</h5>
 
 {% endif %}

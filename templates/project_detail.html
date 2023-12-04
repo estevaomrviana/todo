@@ -9,19 +9,21 @@
         <div class="col-md-8 col-sm-12">
             
             <h3 class="mb-4 text-primary">
-                Bem-vindo à Minhas Tarefas
+                {{ project.title }}
             </h3>
 
-            <form hx-post="{% url 'create_project' %}" hx-target="#projectList" >
+            <form hx-post="{% url 'create_todo' %}" hx-target="#todoList" >
                 {% csrf_token %}
+                <input type="hidden" name="project" id="id_project" value="{{ project.id }}">
+
                 <div class="row g-2">
                     
                     <div class="col-12">
-                        <label for="projectText">Digite o nome do projeto:</label>
+                        <label for="todoText">Digite o nome de sua tarefa aqui:</label>
                     </div>
                         
                     <div class="col-10">
-                        <input  type="text" name="title" class="form-control form-control-lg bg-dark text-light" id="projectText" required>
+                        <input  type="text" name="title" class="form-control form-control-lg bg-dark text-light" id="todoText" required>
                     </div>
                     
                     <div class="col-2 d-grid gap-2">
@@ -32,10 +34,8 @@
             </form>
         </div>
 
-        <div class="col-md-8 col-sm-12" class="py-4">
-            <div class="row" id="projectList" >
-                {% include 'project-list.html' %}
-            </div>
+        <div class="col-md-8 col-sm-12" id="todoList" class="py-4">
+            {% include 'todo-list.html' %}
         </div>
 
     </div>

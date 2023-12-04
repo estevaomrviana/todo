@@ -1,0 +1,26 @@
+{% if projects %}
+
+    {% for project in projects %}
+    
+    <div class="col-md-6 col-sm-12">
+        <div class="card text-bg-dark mb-3 shadow border border-primary rounded-4">
+            <div class="card-body">
+                
+                <h5 class="card-title py-4">
+                    {{ project.title }}
+                </h5>
+            
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{% url 'project_detail' project.id %}" class="btn btn-outline-light stretched-link">Ver tarefas</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    
+{% else %}
+
+<h5>Atualmente, você não tem projetos cadastrados.</h5>
+
+{% endif %}
